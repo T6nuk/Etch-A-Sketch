@@ -1,13 +1,23 @@
 // create a 16x16 grid
-const rows = 16;
-const columns = 16;
 const container = document.querySelector("#container");
+const btn = document.querySelector("button");
 
-document.addEventListener("DOMContentLoaded", () => {
+btn.addEventListener("click", () => {
+  container.replaceChildren();
+  let newRows = prompt("How many rows on your new grid?");
+  if (newRows > 64) return alert("pick a smaller number, max 64");
+  if (isNaN(newRows)) return alert("not a number, please write a number");
+  console.log(newRows);
+
+  createGrid(newRows);
+});
+
+function createGrid(rowsN) {
+  let rows = rowsN;
+  let columns = rows;
   for (let i = 0; i < rows; i++) {
     let row = document.createElement("div");
     row.classList.add("row-item");
-    row.style.backgroundColor = "blue";
     row.style.display = "flex";
     row.style.flexDirection = "column";
     row.style.flex = "auto";
@@ -20,10 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
       column.style.backgroundColor = "pink";
       row.appendChild(column);
 
-      column.addEventListener("mouseover", () => {
-        column.style.backgroundColor = "red";
-      });
+      //   column.addEventListener("mouseover", () => {
+      //     column.style.backgroundColor = "red";
+      //   });
     }
     container.appendChild(row);
   }
-});
+}
