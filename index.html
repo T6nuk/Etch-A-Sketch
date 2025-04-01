@@ -9,22 +9,45 @@
       body {
         height: 95vh;
         margin: 0;
+        justify-items: anchor-center;
+        align-content: center;
+        background-color: antiquewhite;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
       }
       #container {
         display: flex;
-        height: 100%;
+        height: 800px;
+        width: 800px;
       }
       header {
-        text-align: center;
-        background-color: wheat;
+        display: flex;
+        justify-content: space-around;
+        background-color: antiquewhite;
       }
       button {
-        margin: 10px;
+        font-family: sans-serif;
+        margin: 10px 0px;
+      }
+      input,
+      label {
+        margin: 10px 0px;
       }
     </style>
   </head>
   <body>
-    <header><button>Make a new grid</button></header>
+    <header>
+      <button id="button-new-grid">Make a new grid</button>
+      <div>
+        <label for="color-select">Select a color</label>
+        <input type="color" id="color-select" />
+      </div>
+      <button id="button-clear-grid">Clear grid</button>
+    </header>
     <div id="container"></div>
 
     <script src="script.js"></script>
